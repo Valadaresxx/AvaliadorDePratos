@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+#Arquvivos criados com writer
+*.json

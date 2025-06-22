@@ -4,23 +4,24 @@ import br.com.valadares.avaliadordepratos.model.Avaliacao;
 import br.com.valadares.avaliadordepratos.model.Prato;
 import br.com.valadares.avaliadordepratos.service.AvaliacaoService;
 import br.com.valadares.avaliadordepratos.service.PratoService;
+import br.com.valadares.avaliadordepratos.service.ListaService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
     public static void exibirMenu() {
+//        List<Prato> listaPratos =
         boolean continuar = true;
         Scanner s = new Scanner(System.in);
-        List<Prato> listaDePratos = new ArrayList<>();
+        List<Prato> listaDePratos = ListaService.carregarPratos();
 
         while (continuar) {
             System.out.println("------Menu------");
             System.out.println("1- Adicione um prato");
             System.out.println("2- Avalie um prato");
             System.out.println("3- Cardapio ");
-            System.out.println("4- Carpadio com avaliações");
+            System.out.println("4- Salvar em json");
             System.out.println("5- Sair");
             System.out.println("----------------");
             int escolha = s.nextInt();
@@ -50,8 +51,12 @@ public class Menu {
                     }
                     break;
                 case 3:
+                    for (Prato lista:listaDePratos){
+                        System.out.println(lista.toString());
+                    }
                     break;
                 case 4:
+                    ListaService.salvarPratos(listaDePratos);
                     break;
                 case 5:
                     continuar = false;

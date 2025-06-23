@@ -11,27 +11,12 @@ public class Avaliacao {
         this.comentario = comentario;
     }
 
-    public String getCliente() {
-        return cliente;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
     public int getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
-
     @Override
     public String toString() {
-        return "Avaliacao" + "\n" +
-                " cliente = " + cliente +"\n" +
-                " comentario = " + comentario +"\n" +
-                " nota = " + nota +"\n";
+        return " " + cliente + ": " + comentario + " -  Nota:" + nota;
     }
 }

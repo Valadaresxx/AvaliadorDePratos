@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class Menu {
     public static void exibirMenu() {
-//        List<Prato> listaPratos =
         boolean continuar = true;
         Scanner s = new Scanner(System.in);
         List<Prato> listaDePratos = ListaService.carregarPratos();
@@ -21,8 +20,8 @@ public class Menu {
             System.out.println("1- Adicione um prato");
             System.out.println("2- Avalie um prato");
             System.out.println("3- Cardapio ");
-            System.out.println("4- Salvar em json");
-            System.out.println("5- Sair");
+            System.out.println("4- Excluir ");
+            System.out.println("5- Sair e Salvar");
             System.out.println("----------------");
             int escolha = s.nextInt();
             s.nextLine();
@@ -56,9 +55,10 @@ public class Menu {
                     }
                     break;
                 case 4:
-                    ListaService.salvarPratos(listaDePratos);
+
                     break;
                 case 5:
+                    ListaService.salvarPratos(listaDePratos);
                     continuar = false;
                        break;
 

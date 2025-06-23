@@ -20,31 +20,40 @@ public class Prato {
     }
 
     public double calcularMedia(){
-        return 0;
+        if(avaliacao.isEmpty()){
+            return 0.0;
+        }
+        double soma = 0;
+        for (Avaliacao a : avaliacao){
+            soma += a.getNota();
+        }
+        return soma / avaliacao.size();
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getRestaurante() {
-        return restaurante;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public List<Avaliacao> getAvaliacao() {
-        return avaliacao;
-    }
-
     @Override
     public String toString() {
-        return "Prato\n" +
-                " nome = " + nome + "\n" +
-                " restaurante = " + restaurante +"\n" +
-                " descricao = " + descricao +"\n"
-                + avaliacao +"\n";
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Prato: ").append(nome).append("\n");
+        sb.append("Restaurante: ").append(restaurante).append("\n");
+        sb.append("Descrição: ").append(descricao).append("\n\n");
+
+        if (avaliacao.isEmpty()) {
+            sb.append("Sem avaliações no momento.\n");
+        } else {
+            sb.append("Avaliações:\n");
+            for (Avaliacao a : avaliacao) {
+                sb.append(a).append("\n");
+            }
+        }
+        sb.append("\nMédia das avaliações: ").append(String.format("%.2f", calcularMedia()));
+        sb.append("\n-----------------------------\n");
+
+        return sb.toString();
     }
 }

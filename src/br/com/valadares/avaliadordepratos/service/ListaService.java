@@ -2,6 +2,7 @@ package br.com.valadares.avaliadordepratos.service;
 
 import br.com.valadares.avaliadordepratos.model.Avaliacao;
 import br.com.valadares.avaliadordepratos.model.Prato;
+import br.com.valadares.avaliadordepratos.util.Entrada;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -50,7 +51,7 @@ public class ListaService {
         System.out.println("Oque deseja excluir?" +
                 "\nPrato - Digite 1" +
                 "\nAvalição - Digite 2");
-        int excluirEscolha = s.nextInt();
+        int excluirEscolha = Entrada.lerInteiro(s);
         s.nextLine();
 
         if (excluirEscolha < 1 || excluirEscolha > 2) {
@@ -62,7 +63,7 @@ public class ListaService {
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(i + 1 + " - " + lista.get(i).getNome());
                     }
-                    int excluirPrato = s.nextInt();
+                    int excluirPrato = Entrada.lerInteiro(s);
                     if (excluirPrato < 1 || excluirPrato > lista.size()) {
                         System.out.println("Prato indisponivel! ");
                     } else {
@@ -76,7 +77,7 @@ public class ListaService {
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(i + 1 + " - " + lista.get(i).getNome());
                     }
-                    int pratoEscolhido = s.nextInt();
+                    int pratoEscolhido = Entrada.lerInteiro(s);
                     s.nextLine();
 
                     if (pratoEscolhido < 1 || pratoEscolhido > lista.size()) {
@@ -86,17 +87,16 @@ public class ListaService {
                         if (avaliacoes.isEmpty()) {
                             System.out.println("Não tem avaliação");
                         }
-
                         for (int i = 0; i < avaliacoes.size(); i++) {
                             System.out.println(i + 1 + "-" + avaliacoes.get(i));
                         }
                         System.out.println("Qual avaliação deseja excluir? ");
-                        int excluiAvaliacao = s.nextInt();
+                        int excluiAvaliacao = Entrada.lerInteiro(s);
                         if (excluiAvaliacao < 1 || excluiAvaliacao > avaliacoes.size()){
                             System.out.println("Numero de Avaliação errado!");
                         }else{
                             avaliacoes.remove(excluiAvaliacao - 1);
-                            System.out.println("avaliaçao excluida! ");
+                            System.out.println("Avaliaçao excluida! ");
                         }
                     }
                     break;

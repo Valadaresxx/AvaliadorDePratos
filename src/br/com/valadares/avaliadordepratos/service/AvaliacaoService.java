@@ -1,6 +1,7 @@
 package br.com.valadares.avaliadordepratos.service;
 
 import br.com.valadares.avaliadordepratos.model.Avaliacao;
+import br.com.valadares.avaliadordepratos.util.Entrada;
 
 import java.util.Scanner;
 
@@ -11,8 +12,7 @@ public class AvaliacaoService {
         String nomeA = s.nextLine();
 
         System.out.println("Sua nota: ");
-        int notaA = s.nextInt();
-        s.nextLine();
+        int notaA = Entrada.lerInteiro(s);
 
         System.out.println("Comentario: ");
         String comentarioA = s.nextLine();

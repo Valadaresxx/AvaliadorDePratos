@@ -5,6 +5,7 @@ import br.com.valadares.avaliadordepratos.model.Prato;
 import br.com.valadares.avaliadordepratos.service.AvaliacaoService;
 import br.com.valadares.avaliadordepratos.service.PratoService;
 import br.com.valadares.avaliadordepratos.service.ListaService;
+import br.com.valadares.avaliadordepratos.util.Entrada;
 
 import java.util.List;
 import java.util.Scanner;
@@ -23,8 +24,10 @@ public class Menu {
             System.out.println("4- Excluir ");
             System.out.println("5- Sair e Salvar");
             System.out.println("----------------");
-            int escolha = s.nextInt();
-            s.nextLine();
+            int escolha = Entrada.lerInteiro(s);
+            if (escolha < 1 || escolha > 5){
+                System.out.println("Opção invalida!");
+            }
 
             switch (escolha){
                 case 1:
@@ -38,14 +41,13 @@ public class Menu {
                         for (int i = 0; i < listaDePratos.size(); i++) {
                             System.out.println(i+1 +" - " + listaDePratos.get(i).getNome());
                         }
-                        int indice = s.nextInt();
-                        s.nextLine();
+                        int indice = Entrada.lerInteiro(s);
                         if (indice >= 0 && indice <= listaDePratos.size()){
                             Avaliacao nova = AvaliacaoService.avaliarPrato(s);
                             listaDePratos.get(indice-1).adicionarAvaliacao(nova);
                             System.out.println("Avaliação adicionada! ");
                         }else {
-                            System.out.println("Numero do prato errado!");
+                            System.out.println("Numero do prato invalido!");
                         }
                     }
                     break;

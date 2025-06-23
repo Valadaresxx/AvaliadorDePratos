@@ -55,7 +55,7 @@ public class Menu {
                     }
                     break;
                 case 4:
-
+                    ListaService.excluir(s, listaDePratos);
                     break;
                 case 5:
                     ListaService.salvarPratos(listaDePratos);

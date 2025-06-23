@@ -34,6 +34,10 @@ public class Prato {
         return nome;
     }
 
+    public List<Avaliacao> getAvaliacao() {
+        return avaliacao;
+    }
+
     @Override
     public String toString() {
 
